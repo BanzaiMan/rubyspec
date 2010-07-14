@@ -32,7 +32,7 @@ platform_is :windows do
     
     # 1.8 only constants
     ruby_version_is ""..."1.9" do
-
+      # there are none
     end
 
     # 1.9 only constants
