@@ -3,7 +3,7 @@ platform_is :windows do
   
   describe 'WIN32OLE.const_load with one argument' do
     before :each do
-      @win32ole = WIN32OLE.new 'InternetExplorer.application'
+      @win32ole = WIN32OLE.new 'Shell.Application'
     end
     
     it 'loads constants into WIN32OLE namespace' do
@@ -15,7 +15,7 @@ platform_is :windows do
   describe 'WIN32OLE.const_load with two arguments' do
     before :each do
       module WIN32OLE_RUBYSPEC; end
-      @win32ole = WIN32OLE.new 'InternetExplorer.application'
+      @win32ole = WIN32OLE.new 'Shell.Application'
     end
     
     it 'loads constants into given namespace' do

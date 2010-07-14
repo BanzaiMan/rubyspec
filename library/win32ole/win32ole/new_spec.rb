@@ -3,8 +3,14 @@ platform_is :windows do
   
   describe 'WIN32OLE.new' do
     it 'creates a WIN32OLE object from OLE server name' do
-      ie = WIN32OLE.new 'InternetExplorer.application'
-      ie.should be_kind_of WIN32OLE
+      shell = WIN32OLE.new 'Shell.Application'
+      shell.should be_kind_of WIN32OLE
+      shell = nil
+    end
+    
+    it 'creates a WIN32OLE object from valid CLSID' do
+      shell = WIN32OLE.new("{13709620-C279-11CE-A49E-444553540000}")
+      shell.should be_kind_of WIN32OLE
     end
     
     it 'raises TypeError if argument cannot be converted to String' do
@@ -16,4 +22,5 @@ platform_is :windows do
     end
     
   end
+  
 end
