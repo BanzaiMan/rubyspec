@@ -4,6 +4,7 @@ platform_is :windows do
   describe 'WIN32OLE_EVENT.new' do
     before :each do
       @ole = WIN32OLE.new('InternetExplorer.Application')
+      @event = ''
     end
     
     after :each do
