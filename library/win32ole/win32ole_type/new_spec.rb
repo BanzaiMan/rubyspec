@@ -2,15 +2,6 @@ platform_is :windows do
   require 'win32ole'
 
   describe 'WIN32OLE_TYPE.new' do
-    before :each do
-      @ole = WIN32OLE.new('InternetExplorer.Application')
-      @event = ''
-    end
-
-    after :each do
-      @ole = nil
-    end
-    
     it 'raises ArgumentError with no argument' do
       lambda { WIN32OLE_TYPE.new }.should raise_error ArgumentError
     end
