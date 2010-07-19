@@ -11,7 +11,7 @@ platform_is :windows do
       lambda { @m_file_name.invoke_kind(1) }.should raise_error ArgumentError
     end
     
-    it 'returns expected value for Scripting Runtime\'s "File" method' do
+    it 'returns expected value for Scripting Runtime\'s "name" method' do
       @m_file_name.invoke_kind.should =~ /^(UNKNOWN|PROPERTY|PROPERTYGET|PROPERTYPUT|PROPERTYPUTREF|FUNC)$/
     end
     

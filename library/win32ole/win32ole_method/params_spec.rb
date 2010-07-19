@@ -13,7 +13,7 @@ platform_is :windows do
       lambda { @m_file_name.params(1) }.should raise_error ArgumentError
     end
     
-    it 'returns empty array for Scripting Runtime\'s "File" method' do
+    it 'returns empty array for Scripting Runtime\'s "name" method' do
       @m_file_name.params.should be_kind_of Array
       @m_file_name.params.should be_empty
     end

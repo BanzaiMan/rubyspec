@@ -17,7 +17,7 @@ platform_is :windows do
       @navigate_method.helpcontext.should == 0
     end
     
-    it 'returns expected value for Scripting Runtime\'s "File" method' do
+    it 'returns expected value for Scripting Runtime\'s "name" method' do
       @m_file_name.helpcontext.should == 2181996 # value indicated in MRI's test
     end
     
