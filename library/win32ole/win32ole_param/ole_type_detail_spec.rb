@@ -1,7 +1,7 @@
 platform_is :windows do
   require 'win32ole'
   
-  describe 'WIN32OLE_METHOD#ole_type_detail' do
+  describe 'WIN32OLE_PARAM#ole_type_detail' do
     before :each do
       ole_type_detail = WIN32OLE_TYPE.new("Microsoft Scripting Runtime", "FileSystemObject")
       m_copyfile = WIN32OLE_METHOD.new(ole_type_detail, "CopyFile")
