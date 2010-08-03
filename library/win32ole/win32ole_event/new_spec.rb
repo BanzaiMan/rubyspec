@@ -19,8 +19,7 @@ platform_is :windows do
       lambda { WIN32OLE_EVENT.new(@ole, 'A') }.should raise_error RuntimeError
     end
 
-    ruby_version_is "1.9" do
-      # this appears to cause seg fault in MRI 1.8.7
+    ruby_bug "#3576","1.8" do
       it 'raises RuntimeError if OLE object has no events' do
         dict = WIN32OLE.new('Scripting.Dictionary')
         lambda { WIN32OLE_EVENT.new(dict) }.should raise_error RuntimeError
