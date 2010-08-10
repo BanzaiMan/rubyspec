@@ -12,8 +12,8 @@ platform_is :windows do
       lambda { @shell._invoke(0, []) }.should raise_error ArgumentError
     end
     
-    it 'dispatches the method bound to the specific ID' do
-      @shell._invoke(0x60020002, [0], [WIN32OLE::VARIANT::VT_VARIANT]).should =~ /Desktop/i
+    it 'dispatches the method bound to a specific ID' do
+      @shell._invoke(0x60020002, [0], [WIN32OLE::VARIANT::VT_VARIANT]).title.should =~ /Desktop/i
     end
     
   end
