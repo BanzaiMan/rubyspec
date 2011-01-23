@@ -40,13 +40,15 @@ describe "Time#+" do
       t = Time.at(0) + Rational(8_999_999_999_999_999, 1_000_000_000_000_000)
       t.should_not == Time.at(9)
       t.usec.should == 999_999
-      t.nsec.should == 999_999_999
-      t.subsec.should == Rational(999_999_999_999_999, 1_000_000_000_000_000)
+      not_compliant_on :jruby do
+        t.nsec.should == 999_999_999
+        t.subsec.should == Rational(999_999_999_999_999, 1_000_000_000_000_000)
+      end
     end
 
     it "adds a negative Float" do
       t = Time.at(100) + -1.3
-      t.usec.should == 699999
+      t.usec.should be_close(699999, TOLERANCE * 1000000)
       t.to_i.should == 98
     end
   end
