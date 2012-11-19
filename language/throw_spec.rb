@@ -70,6 +70,18 @@ describe "The throw keyword" do
     catch(:foo) { c.call }.should == :msg
   end
 
+  it "resets $! within rescue clause" do
+    catch :this do
+      begin
+        foo # NameError
+      rescue NameError => e
+        $!.should be_kind_of NameError
+        throw :this
+      end
+    end
+    $!.should be_nil
+  end
+
   ruby_version_is "" ... "1.9" do
     it "raises a NameError if outside of scope of a matching catch" do
       lambda { throw :test,5 }.should raise_error(NameError)
