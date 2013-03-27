@@ -169,4 +169,21 @@ describe "Time.at" do
       end
     end
   end
+
+  describe "passed [Time, Time]" do
+    ruby_version_is ""..."1.9" do
+      it "raises a TypeError" do
+        lambda { Time.at(Time.now, Time.now) }.should raise_error(TypeError)
+      end
+    end
+
+    ruby_version_is "1.9" do
+      it "returns a Time object equal to the specified time plus the number of microseconds since the epoch to Time" do
+        t1 = Time.at(10)
+        t2 = Time.at(t1, t1)
+        t2.tv_sec.should == 10
+        t2.tv_usec.should == 10
+      end
+    end
+  end
 end
