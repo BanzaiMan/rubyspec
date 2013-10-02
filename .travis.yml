@@ -2,9 +2,5 @@ language: ruby
 script:
   - bundle exec mspec .
 rvm:
-  - ruby-head
-before_install:
-  - gem --version
-allow_failures:
- - rvm: ruby-head
- - rvm: rbx-head
+  - 2.0.0
+  - 1.9.3
