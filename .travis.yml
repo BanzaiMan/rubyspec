@@ -3,7 +3,8 @@ script:
   - bundle exec mspec .
 rvm:
   - ruby-head
-  - rbx-head
+before_install:
+  - gem --version
 allow_failures:
  - rvm: ruby-head
  - rvm: rbx-head
