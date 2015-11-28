@@ -3,7 +3,13 @@ rvm:
   - 2.0.0-p647
   - 2.1.7
   - 2.2.3
-  - ruby-head
+matrix:
+  include:
+    - sudo: required
+      dist: precise
+      group: edge
+      rvm: ruby-head
+
 install:
   - git clone https://github.com/ruby/mspec.git ../mspec
 script:
